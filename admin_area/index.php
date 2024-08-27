@@ -44,7 +44,7 @@
                         <p class="mb-0">Admin Name</p>
                     </div>
                     <div class="ms-auto text-center">
-                        <button class="btn btn-primary mx-2 my-2"><a href="" class="nav-link text-light">Insert Products</a></button>
+                        <button class="btn btn-primary mx-2 my-2"><a href="insert_product.php" class="nav-link text-light">Insert Products</a></button>
                         <button class="btn btn-primary mx-2 my-2"><a href="" class="nav-link text-light">View Products</a></button>
                         <button class="btn btn-primary mx-2 my-2"><a href="index.php?insert_category" class="nav-link text-light">Insert Categories</a></button>
                         <button class="btn btn-primary mx-2 my-2"><a href="" class="nav-link text-light">View Categories</a></button>
