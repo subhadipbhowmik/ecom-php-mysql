@@ -1,0 +1,15 @@
+.logo{
+    height: 10%;
+    width: 10%;
+}
+
+.admin-image{
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+}
