@@ -1,3 +1,7 @@
+<?php
+include('./includes/connect.php')
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -148,52 +152,58 @@
           </div>
         </div>
       </div>
+
+
       <div class="col-md-2 bg-secondary rounded p-0">
         <!-- side nav  -->
-         <ul class="navbar-nav me-auto">
-          <li class="nav-item bg-info">
-            <a href="#" class="nav-link text-light"><h4>Cycles</h4></a>
+        <ul class="navbar-nav me-auto rounded">
+          <!-- Display Categories -->
+          <li class="nav-item bg-primary text-center rounded">
+            <a href="#" class="nav-link text-light">
+              <h4>Categories</h4>
+            </a>
           </li>
-          <li class="nav-item text-light  ps-2">
-            <a href="#" class="nav-link text-light">Hero Cycle</a>
-          </li>
-          <li class="nav-item text-light  ps-2">
-            <a href="#" class="nav-link text-light">Hero Cycle</a>
-          </li>
-          <li class="nav-item text-light  ps-2">
-            <a href="#" class="nav-link text-light">Hero Cycle</a>
-          </li>
-          <li class="nav-item text-light  ps-2">
-            <a href="#" class="nav-link text-light">Hero Cycle</a>
-          </li>
-          <li class="nav-item text-light  ps-2">
-            <a href="#" class="nav-link text-light">Hero Cycle</a>
-          </li>
-          <li class="nav-item bg-info">
-            <a href="#" class="nav-link text-light"><h4>Gear Cycles</h4></a>
-          </li>
-          <li class="nav-item text-light  ps-2">
-            <a href="#" class="nav-link text-light">Hero Cycle</a>
-          </li>
-          <li class="nav-item text-light  ps-2">
-            <a href="#" class="nav-link text-light">Hero Cycle</a>
-          </li>
-          <li class="nav-item text-light  ps-2">
-            <a href="#" class="nav-link text-light">Hero Cycle</a>
-          </li>
-          <li class="nav-item text-light  ps-2">
-            <a href="#" class="nav-link text-light">Hero Cycle</a>
-          </li>
-          <li class="nav-item text-light  ps-2">
-            <a href="#" class="nav-link text-light">Hero Cycle</a>
-          </li>
-         </ul>
+          <?php
+          // Assuming you have a 'categories' table
+          $SELECT_CATEGORIES = "SELECT * FROM `categories`";
+          $categories_result = mysqli_query($con, $SELECT_CATEGORIES);
 
+          while ($category_data = mysqli_fetch_assoc($categories_result)) {
+            $category_title = $category_data['category_title']; // Access category title
+            $category_id = $category_data['category_id']; // Access category ID
+
+            echo "<li class='nav-item ms-2 text-light'>
+                  <a href='index.php?category=$category_id' class='nav-link'>$category_title</a>
+                  </li>";
+          }
+          ?>
+
+          <!-- Display Brands -->
+          <li class="nav-item bg-primary text-center">
+            <a href="#" class="nav-link text-light">
+              <h4>Brands</h4>
+            </a>
+          </li>
+          <?php
+          $SELECT_BRANDS = "SELECT * FROM `brands`";
+          $brands_result = mysqli_query($con, $SELECT_BRANDS);
+
+          while ($row_data = mysqli_fetch_assoc($brands_result)) {
+            $brand_title = $row_data['brand_title']; // Access brand title
+            $brand_id = $row_data['brand_id']; // Access brand ID
+
+            echo "<li class='nav-item ms-2 text-light'>
+                  <a href='index.php?brand=$brand_id' class='nav-link'>$brand_title</a>
+                  </li>";
+          }
+          ?>
+
+        </ul>
       </div>
+
+
+
     </div>
-
-
-
     <!-- footer  -->
     <!--
     <div class="p-3 text-center">
