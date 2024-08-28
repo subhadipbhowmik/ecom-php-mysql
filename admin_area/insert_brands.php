@@ -1,5 +1,6 @@
 <?php
 include('../includes/connect.php');
+include '../utils/alerts/alertUtils.php';
 
 if (isset($_POST['insert_brands_btn'])) {
     $brand_title = trim($_POST['brand_title']);
@@ -24,7 +25,8 @@ if (isset($_POST['insert_brands_btn'])) {
             $query_result = mysqli_query($con, $SQL_QUERY);
 
             if ($query_result) {
-                echo "<script>alert('BRAND ADDED SUCCESSFULLY')</script>";
+                // echo "<script>alert('BRAND ADDED SUCCESSFULLY')</script>";
+                showAlert('BRAND ADDED SUCCESSFULLY', 'success');
             } else {
                 echo "<script>alert('ERROR: COULD NOT ADD BRAND')</script>";
             }
@@ -32,6 +34,8 @@ if (isset($_POST['insert_brands_btn'])) {
     }
 }
 ?>
+
+<script src="../assets/js/sweetalert.min.js"></script>
 
 <h2 class="text-center">Insert Brands</h2>
 <form action="" method="post" class="mb-2">

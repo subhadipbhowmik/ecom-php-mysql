@@ -1,5 +1,5 @@
 <?php
-include('./includes/connect.php')
+include('./includes/connect.php');
 ?>
 
 <!doctype html>
@@ -73,83 +73,40 @@ include('./includes/connect.php')
     <!-- fourth child  -->
     <div class="row px-4">
       <div class="col-md-10">
-        <!-- all products  -->
+        <!-- fetching products  -->
         <div class="row">
-          <!-- first card  -->
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" class="card-img-top  p-5" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Add to card</a>
-                <a href="#" class="btn btn-secondary">View More</a>
-              </div>
-            </div>
-          </div>
-          <!-- second card  -->
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" class="card-img-top  p-5" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Add to card</a>
-                <a href="#" class="btn btn-secondary">View More</a>
-              </div>
-            </div>
-          </div>
-          <!-- third card  -->
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" class="card-img-top p-5" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Add to card</a>
-                <a href="#" class="btn btn-secondary">View More</a>
-              </div>
-            </div>
-          </div>
-        </div>
+          <?php
+          $FILE_PATH = "./admin_area/product_images/";
+          $SELECT_QUERY = "SELECT * FROM `products`";
+          $result_query = mysqli_query($con, $SELECT_QUERY);
 
-        <div class="row mb-4">
-          <!-- first card  -->
-          <div class="col-md-4">
+          while ($row = mysqli_fetch_assoc($result_query)) {
+            $product_id = $row['product_id'];
+            $product_title = $row['product_title'];
+            $product_description = $row['product_description'];
+            $product_feature_image = $row['product_feature_image'];
+            $product_price = $row['product_price'];
+            $category_id = $row['category_id'];
+            $brand_id = $row['brand_id'];
+
+            // Build the full path to the image
+            $image_path = $FILE_PATH . $product_feature_image;
+
+            echo '<div class="col-md-4 mb-4">
             <div class="card" style="width: 18rem;">
-              <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" class="card-img-top  p-5" alt="...">
+              <img src="' . $image_path . '" class="card-img-top p-5" alt="' . $product_title . '">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Add to card</a>
+                <h5 class="card-title">' . $product_title . '</h5>
+                <p class="card-text">' . $product_description . '</p>
+                <p class="card-text">Price: $' . $product_price . '</p>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
                 <a href="#" class="btn btn-secondary">View More</a>
               </div>
             </div>
-          </div>
-          <!-- second card  -->
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" class="card-img-top  p-5" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Add to card</a>
-                <a href="#" class="btn btn-secondary">View More</a>
-              </div>
-            </div>
-          </div>
-          <!-- third card  -->
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" class="card-img-top p-5" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Add to card</a>
-                <a href="#" class="btn btn-secondary">View More</a>
-              </div>
-            </div>
-          </div>
+          </div>';
+          }
+          ?>
+
         </div>
       </div>
 
