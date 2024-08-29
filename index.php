@@ -53,6 +53,11 @@ include('./functions/common_function.php')
       </div>
     </nav>
 
+    <!-- calling cart function  -->
+     <?php
+     addToCart();
+     ?>
+
     <!-- second child  -->
     <nav class="navbar navbar-expand-lg p-0">
       <ul class="navbar-nav me-auto">

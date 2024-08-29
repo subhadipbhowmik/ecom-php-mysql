@@ -53,6 +53,11 @@ include('./functions/common_function.php')
       </div>
     </nav>
 
+    <!-- calling cart function  -->
+    <?php
+    addToCart();
+    ?>
+
     <!-- second child  -->
     <nav class="navbar navbar-expand-lg p-0">
       <ul class="navbar-nav me-auto">
@@ -76,7 +81,7 @@ include('./functions/common_function.php')
       <div class="col-md-10">
         <!-- fetching products  -->
         <div class="row">
-            <!-- here will be 2 columns for the card and the extra information  -->
+          <!-- here will be 2 columns for the card and the extra information  -->
           <?php
           viewDetails();
           getUniqueCategoryProducts();
@@ -117,9 +122,9 @@ include('./functions/common_function.php')
 
     </div>
     <!-- footer  -->
-     <?php
-       include('./includes/footer.php')
-     ?>
+    <?php
+    include('./includes/footer.php')
+    ?>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
