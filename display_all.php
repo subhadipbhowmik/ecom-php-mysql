@@ -77,11 +77,9 @@ include('./functions/common_function.php')
         <!-- fetching products  -->
         <div class="row">
           <?php
-          getAllProducts();
+          displayAllProducts();
           getUniqueCategoryProducts();
           getUniqueBrandProducts();
-          $ip = getIPAddress();
-          echo 'User Real IP Address - ' . $ip;
           ?>
         </div>
       </div>
@@ -113,14 +111,11 @@ include('./functions/common_function.php')
 
         </ul>
       </div>
-
-
-
     </div>
     <!-- footer  -->
     <?php
-    include('./includes/footer.php')
-    ?>
+       include('./includes/footer.php')
+     ?>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

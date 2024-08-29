@@ -76,12 +76,11 @@ include('./functions/common_function.php')
       <div class="col-md-10">
         <!-- fetching products  -->
         <div class="row">
+            <!-- here will be 2 columns for the card and the extra information  -->
           <?php
-          getAllProducts();
+          viewDetails();
           getUniqueCategoryProducts();
           getUniqueBrandProducts();
-          $ip = getIPAddress();
-          echo 'User Real IP Address - ' . $ip;
           ?>
         </div>
       </div>
@@ -118,9 +117,9 @@ include('./functions/common_function.php')
 
     </div>
     <!-- footer  -->
-    <?php
-    include('./includes/footer.php')
-    ?>
+     <?php
+       include('./includes/footer.php')
+     ?>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

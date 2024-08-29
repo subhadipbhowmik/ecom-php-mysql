@@ -28,10 +28,10 @@ include('./functions/common_function.php')
       <div class="collapse navbar-collapse" id="navcontent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./display_all.php">Products</a>
+            <a class="nav-link" href="#">Products</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Register</a>
@@ -46,7 +46,7 @@ include('./functions/common_function.php')
             <a class="nav-link" href="#">Total Price</a>
           </li>
         </ul>
-        <form class="d-flex" role="search" action="./search.php" method="get">
+        <form class="d-flex" role="search" action="" method="get">
           <input name="search_query" class="form-control me-2" type="search" placeholder="Search Cycles " aria-label="search">
           <input name="search_data" class="btn btn-outline-success" type="submit" value="search">
         </form>
@@ -77,11 +77,9 @@ include('./functions/common_function.php')
         <!-- fetching products  -->
         <div class="row">
           <?php
-          getAllProducts();
+          searchProduct();
           getUniqueCategoryProducts();
           getUniqueBrandProducts();
-          $ip = getIPAddress();
-          echo 'User Real IP Address - ' . $ip;
           ?>
         </div>
       </div>
@@ -118,9 +116,10 @@ include('./functions/common_function.php')
 
     </div>
     <!-- footer  -->
-    <?php
-    include('./includes/footer.php')
-    ?>
+
+    <div class="py-2 bg-warning mt-4 text-center rounded-top">
+      <p class="mb-0">All Copyright Reserved</p>
+    </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
