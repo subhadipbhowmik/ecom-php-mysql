@@ -369,3 +369,29 @@ function addToCart()
         }
     }
 }
+
+// function to get cart item numbers
+function cartItemNumber()
+{
+    if (isset($_GET['add_to_cart'])) {
+        global $con;
+        $ip = getIPAddress(); // ::1 will be returned
+        // Use quotes around IP address
+        $SELECT_QUERY = "SELECT * FROM `cart_details` WHERE ip_address='$ip'";
+        $RESULT_QUERY = mysqli_query($con, $SELECT_QUERY);
+        $count_items = mysqli_num_rows($RESULT_QUERY);
+    }else {
+        global $con;
+        $ip = getIPAddress(); // ::1 will be returned
+        // Use quotes around IP address
+        $SELECT_QUERY = "SELECT * FROM `cart_details` WHERE ip_address='$ip'";
+        $RESULT_QUERY = mysqli_query($con, $SELECT_QUERY);
+        $count_items = mysqli_num_rows($RESULT_QUERY);
+        }
+    echo $count_items;
+}
+
+// calculate total cart price
+function totalCartPrice(){
+    
+}
